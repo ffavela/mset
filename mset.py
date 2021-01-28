@@ -1,7 +1,5 @@
 from mset_lib.core import *
 
-print("Hello world!")
-
 # # M=[getSet('a',3), getSet('b',2), getSet('c',1)]
 # # M=[getSet('x',6)]
 # # S=[e for sublist in M for e in sublist]
@@ -18,23 +16,23 @@ print("Hello world!")
 
 # # S=100*['a']+50*['b']+15*['c']
 # # S=['a0','a1','a2','b0','b1','c0','c1','d0','e0']
-# S=['a0','a1','a2','b0','b1','c0']
-# print(G(S,4))
-# print(len(G(S,4)))
+S=['a0','a1','a2','b0','b1','c0']
+print(G(S,4))
+print(len(G(S,4)))
 
-# print(zG(S,4))
-# print(len(zG(S,4)))
-
-
-
-# # print("\nNow doing the new version\n")
-# # print(nG(S,4))
-# # print(len(nG(S,4)))
+print(zG(S,4))
+print(len(zG(S,4)))
 
 
-# # print("\nThe newer version\n")
-# # print(NG(S,4))
-# # print(len(NG(S,4)))
+
+# print("\nNow doing the new version\n")
+# print(nG(S,4))
+# print(len(nG(S,4)))
+
+
+# print("\nThe newer version\n")
+# print(NG(S,4))
+# print(len(NG(S,4)))
 
 # M=[24*['a'],16*['b'],2*['c']]
 # # M=[['a0','a1','a2'],['b0','b1'],['c0']]

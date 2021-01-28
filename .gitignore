@@ -130,3 +130,5 @@ dmypy.json
 
 # backup file from editor
 *~
+\#*
+.\#*
