@@ -54,3 +54,20 @@ print(len(uL))
 combM=MG(M,k)
 print(len(combM))
 
+
+for i in range(10):
+    # L=getRandomMultList(10, 10)
+
+    # print(L)
+
+    M=getRandomMultiset(10, 10)
+    # print(M)
+    S=flattenList(M)
+    # print(S)
+
+    R=getAllIterComb(S,k)
+    uL=getUniqueL(R)
+
+    combM=MG(M,k)
+
+    print(dumbCompare(uL, combM))

@@ -1,6 +1,7 @@
 from math import factorial
 import operator as op
 from functools import reduce
+import random
 
 def ncr(r,n):
     #Important condition
@@ -44,3 +45,17 @@ def getUniqueL(L):
         if e not in uL:
             uL.append(e)
     return uL
+
+def getRandomMultList(maxField, maxMult):
+    fieldN = random.randint(1, maxField)
+    return sorted([random.randint(1,maxMult) for e in range(fieldN)],
+                  reverse=True)
+
+def getRandomMultiset(maxField, maxMult):
+    alphabet="abcdefghijklmnopqrstuvwxyz"
+    L=getRandomMultList(maxField, maxMult)
+    fieldN=len(L)
+    return [n*[alphabet[i]] for i,n in enumerate(L)]
+
+def flattenList(M):
+    return [e for sublist in M for e in sublist]
