@@ -24,7 +24,6 @@ print(zG(S,4))
 print(len(zG(S,4)))
 
 
-
 # print("\nNow doing the new version\n")
 # print(nG(S,4))
 # print(len(nG(S,4)))

@@ -59,3 +59,6 @@ def getRandomMultiset(maxField, maxMult):
 
 def flattenList(M):
     return [e for sublist in M for e in sublist]
+
+def getMultListFromM(M):
+    return [len(m) for m in M ]
