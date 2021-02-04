@@ -3,13 +3,13 @@ import operator as op
 from functools import reduce
 import random
 
-def ncr(r,n):
+def nck(n,k):
     #Important condition
-    if r > n or n < 0:
+    if k > n or n < 0:
         return 0
-    r = min(r, n-r)
-    numer = reduce(op.mul, range(n, n-r, -1), 1)
-    denom = reduce(op.mul, range(1, r+1), 1)
+    k = min(k, n-k)
+    numer = reduce(op.mul, range(n, n-k, -1), 1)
+    denom = reduce(op.mul, range(1, k+1), 1)
     return numer // denom
 
 def myComb(k,N):

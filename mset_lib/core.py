@@ -66,7 +66,7 @@ def zG(S,k):
     return g(k)
 
 #Helper function for the multiset generator
-def nL(L):
+def wL(L):
     if L[0] == 1:
         return L[1:]
     return [L[0]-1]+L[1:]
@@ -83,8 +83,8 @@ def mG(M,k):
         if k == 0:
             return [[ ]]
         if i == N-k:
-            return tOp(S[i],g(k-1,nL(L),i+1))
-        return tOp(S[i],g(k-1,nL(L),i+1))+g(k,L[1:],i+L[0])
+            return tOp(S[i],g(k-1,wL(L),i+1))
+        return tOp(S[i],g(k-1,wL(L),i+1))+g(k,L[1:],i+L[0])
     return g(k,L)
 
 #A simplified version, a nicer one.
@@ -98,7 +98,7 @@ def MG(M,k):
             return [ ]
         if k == 0:
             return [[ ]]
-        return tOp(S[i],g(k-1,nL(L),i+1))+g(k,L[1:],i+L[0])
+        return tOp(S[i],g(k-1,wL(L),i+1))+g(k,L[1:],i+L[0])
     return g(k,L)
 
 #Some helper functions for generating strings and putting in on the
@@ -114,7 +114,7 @@ def getLOfStr(LL):
     return lOStr
 
 #Some counting functions
-def C(L,k):
+def C0(L,k):
     L.sort(reverse=True)
     N=sum(L)
     def c(L,k,i=0):
@@ -122,5 +122,5 @@ def C(L,k):
             return 0
         if k == 0:
             return 1
-        return c(nL(L),k-1,i+1)+c(L[1:],k,i+L[0])
+        return c(wL(L),k-1,i+1)+c(L[1:],k,i+L[0])
     return c(L,k)
