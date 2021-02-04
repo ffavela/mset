@@ -27,11 +27,13 @@ each set has is also chosen. This gives a multiplicity list which
 is sorted in descending order."""
     print(outStr1)
 
+    MList= [getRandomMultiset(6, 3) for i in range(6)]
+    LList=[getMultListFromM(M) for M in MList]
 
-    print("Some examples of the multiplicity lists:\n")
+    print("Some examples of the multiplicity lists (using small vals for printing):\n")
 
-    for i in range(6):
-        print(getRandomMultList(8, 8))
+    for L in LList:
+        print("L = ", L)
 
     outStr2="""
 
@@ -40,10 +42,11 @@ sets are simply multiple instances of letter of the alphabet.
 
     """
 
-    print("\nSome examples of the multiset lists are:\n")
+    print("\nSome examples of the multiset lists are (consistent with"
+          " the respective multiplicities):\n")
 
-    for i in range(6):
-        print(getRandomMultiset(6, 3))
+    for M in MList:
+        print("M = ", M)
 
 
     print('\n')
@@ -55,12 +58,7 @@ with zero elements."""
 
     print(outStr3+'\n')
 
-    print("Executing some random examples, please be patient (do a control-C (or kill it!)"
-          " and relaunch so you can convince yourself that it actually does something"
-          " in case you got unlucky and it began with a tough one), bare in mind that"
-          " the slow processes are due to the itertools part ;-)\n")
-
-    print("The headers correspond to")
+    print("The headers correspond to:")
 
     hMean="""Bool = checks if the unique itertools results are equal to the homebrewed generator
 N1= the number of unique elements using itertools
@@ -71,9 +69,14 @@ Faster?= a boolean that tests if HB is faster than iter
 countTime= time for the counting function
 cTBool= checks if counting time is faster than homebrew generator
 countFun= the result from the counting function
-cBool=checks is the count result is identical to the iter version"""
+cBool=checks is the count result is identical to the iter version\n"""
 
     print(hMean)
+
+    print("Executing some random examples, please be patient (do a control-C (or kill it!)"
+          " and relaunch so you can convince yourself that it actually does something"
+          " in case you got unlucky and it began with a tough one), bare in mind that"
+          " the slow processes are due to the itertools part ;-)\n")
 
     print("Bool N1 N2 T1 T2 Faster? countTime cTBool countFun cBool")
     for i in range(10):
@@ -109,3 +112,7 @@ cBool=checks is the count result is identical to the iter version"""
               exeTR, exeTM, exeTR >= exeTM, countT,
               exeTM >= countT,
               count, cBool)
+
+
+    print("\nNote that the \"traditional\" way is slower and that the homebrewed"
+          " functions are not even optimized.\n")
