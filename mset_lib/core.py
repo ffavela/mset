@@ -138,3 +138,23 @@ def C1(L,k):
             return nck(len(L)+k-1,k)
         return c(wL(L),k-1,i+1)+c(L[1:],k,i+L[0])
     return c(L,k)
+#The memoized version
+def C2(L,k):
+    L.sort(reverse=True)
+    N=sum(L)
+    mDict={}
+    def c(L,k,i=0):
+        if (tuple(L), k, i) in mDict:
+            return mDict[(tuple(L), k, i)]
+        elif i > N-k:
+            mDict[(tuple(L), k, i)] = 0
+            return mDict[(tuple(L), k, i)]
+        elif k == 0:
+            mDict[(tuple(L), k, i)] = 1
+            return mDict[(tuple(L), k, i)]
+        elif  k <= min(L):
+            mDict[(tuple(L), k, i)] = nck(len(L)+k-1,k)
+            return mDict[(tuple(L), k, i)]
+        mDict[(tuple(L), k, i)] = c(wL(L),k-1,i+1)+c(L[1:],k,i+L[0])
+        return mDict[(tuple(L), k, i)]
+    return c(L,k)
