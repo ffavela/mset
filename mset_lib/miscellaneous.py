@@ -62,3 +62,10 @@ def flattenList(M):
 
 def getMultListFromM(M):
     return [len(m) for m in M ]
+
+def isSymmetric(cL):
+    if cL == []:
+        return True
+    if cL[0] != cL[-1]:
+        return False
+    return isSymmetric(cL[1:-1])
