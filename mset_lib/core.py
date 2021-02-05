@@ -1,4 +1,5 @@
 import sys
+from mset_lib.miscellaneous import *
 
 def tOp(xStr, LL):
     return [[xStr] + e for e in LL]
@@ -122,5 +123,18 @@ def C0(L,k):
             return 0
         if k == 0:
             return 1
+        return c(wL(L),k-1,i+1)+c(L[1:],k,i+L[0])
+    return c(L,k)
+
+def C1(L,k):
+    L.sort(reverse=True)
+    N=sum(L)
+    def c(L,k,i=0):
+        if i > N-k:
+            return 0
+        if k == 0:
+            return 1
+        if k <= min(L):
+            return nck(len(L)+k-1,k)
         return c(wL(L),k-1,i+1)+c(L[1:],k,i+L[0])
     return c(L,k)
