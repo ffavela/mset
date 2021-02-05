@@ -138,6 +138,7 @@ def C1(L,k):
             return nck(len(L)+k-1,k)
         return c(wL(L),k-1,i+1)+c(L[1:],k,i+L[0])
     return c(L,k)
+
 #The memoized version
 def C2(L,k):
     L.sort(reverse=True)
