@@ -1,8 +1,12 @@
 import sys
+import numpy as np
 from mset_lib.miscellaneous import *
 
 def tOp(xStr, LL):
     return [[xStr] + e for e in LL]
+
+def tOpV(v, LV):
+    return [v + lv for lv in LV]
 
 def G(S,k):
     N=len(S)
@@ -113,6 +117,31 @@ def getLOfStr(LL):
         newS="".join(l)
         lOStr.append(newS)
     return lOStr
+
+
+#A special vector list generator, pretty useful B-)
+def V(L,k):
+    L.sort(reverse=True)
+    N=sum(L)
+    e=np.identity(len(L), dtype=int)
+    z=np.zeros(len(L), dtype=int)
+
+    def J(i):
+        s=0
+        for j,l in enumerate(L):
+            s+=l
+            if i < s:
+                return j
+
+    def v(k,L,i=0):
+        if i > N-k:
+            return [ ]
+        if k == 0:
+            return [z]
+        return tOpV(e[J(i)],v(k-1,wL(L),i+1))+v(k,L[1:],i+L[0])
+
+    return v(k,L)
+
 
 #Some counting functions
 def C0(L,k):
