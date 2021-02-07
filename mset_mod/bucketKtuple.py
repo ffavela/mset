@@ -69,14 +69,16 @@ function. Lets say that we want to place k=2 balls."""
 
     print("The configurations are:\n")
 
-    print("j   conf")
+    print("j   conf    sum")
     for j,c in enumerate(C):
-        print(j, c)
+        print(j, c, sum(c))
 
     print()
 
-    print("That simply listed the C(L,3)="
-          +str(C2(L,2))+" possibilities.\n")
+    print("That simply listed the C(L,2)="
+          +str(C2(L,2))+" possibilities.\n"+\
+          "Notice that the sum of conf, for any\n"+\
+          "configuration, always gives 2.\n")
 
     print("Each possibility has a combinatorial\n"
 "weight given as the following table:\n")
@@ -88,11 +90,12 @@ function. Lets say that we want to place k=2 balls."""
     for j, c, we in zip(range(len(C)), C, WE):
         print(j, c, we)
 
+    print("\nWhere the \"we\" variable stands for the combinatorial weight.\n")
 
-    str8="""\nNote that as expected:\n\n nck(10,2)="""\
+    str8="""Note that as expected:\n\n nck(10,2)="""\
     +str(nck(10,2))+"""\n
- sum_j=0^C(L,2) we = """+str(sum(WE))
+ sum_j=0^C(L,2) we_j = """+str(sum(WE))
 
     print(str8)
 
-    print("\nWhere the \"we\" variable stands for the combinatorial weight.\n")
+    print("\nThis means that we can easely normalize.\n")
