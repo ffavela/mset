@@ -120,7 +120,7 @@ def getLOfStr(LL):
 
 
 #A special vector list generator, pretty useful B-)
-def V(L,k):
+def V0(L,k):
     L.sort(reverse=True)
     N=sum(L)
     e=np.identity(len(L), dtype=int)
@@ -142,6 +142,24 @@ def V(L,k):
 
     return v(k,L)
 
+
+#Getting the combinatorial coeficients for each possibility.  This may
+#need to be optimized.
+def getCombCoefAL(L, k):
+    vL=V0(L,k)
+    ccAL=[]
+    for v in vL:
+        ccAL.append(np.array([nck(l,e)\
+                             for l, e in zip(L, v)], dtype=int))
+    return ccAL
+
+def getCombCoefL(L, k):
+    vL=V0(L,k)
+    ccL=[]
+    for v in vL:
+        ccL.append(np.array([nck(l,e)\
+                             for l, e in zip(L, v)], dtype=int).prod())
+    return ccL
 
 #Some counting functions
 def C0(L,k):
