@@ -17,6 +17,7 @@ def myComb(k,N):
         return 0
     return int(factorial(N)/(factorial(k)*factorial(N-k)))
 
+
 def dumbCompare(x,y):
     """ Surely there is a better way but it furfills the intended purpose"""
     for ex in x:
@@ -28,6 +29,7 @@ def dumbCompare(x,y):
             print("ey", ey)
             return False
     return True
+
 
 def getMsetForm2(L):
     d={}

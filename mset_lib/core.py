@@ -142,6 +142,35 @@ def V0(L,k):
 
     return v(k,L)
 
+#Optimizing it
+def V1(L,k):
+    L.sort(reverse=True)
+    N=sum(L)
+    e=np.identity(len(L), dtype=int)
+    z=np.zeros(len(L), dtype=int)
+    dictV={}
+
+    def J(i):
+        s=0
+        for j,l in enumerate(L):
+            s+=l
+            if i < s:
+                return j
+
+    def v(k,L,i=0):
+        if (tuple(L), k) in dictV:
+            return dictV[(tuple(L), k)]
+        if i > N-k:
+            dictV[(tuple(L), k)] = []
+            return dictV[(tuple(L), k)]
+        if k == 0:
+            dictV[(tuple(L), k)] = [z]
+            return dictV[(tuple(L), k)]
+        dictV[(tuple(L), k)] = tOpV(e[J(i)],v(k-1,wL(L),i+1))+v(k,L[1:],i+L[0])
+        return dictV[(tuple(L), k)]
+
+    return v(k,L)
+
 
 #Getting the combinatorial coeficients for each possibility.  This may
 #need to be optimized.
