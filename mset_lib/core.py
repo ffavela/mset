@@ -179,7 +179,7 @@ def getCombCoefAL(L, k):
     ccAL=[]
     for v in vL:
         ccAL.append(np.array([nck(l,e)\
-                             for l, e in zip(L, v)], dtype=int))
+                              for l, e in zip(L, v)], dtype=np.ulonglong))
     return ccAL
 
 def getCombCoefL(L, k):
@@ -187,7 +187,7 @@ def getCombCoefL(L, k):
     ccL=[]
     for v in vL:
         ccL.append(np.array([nck(l,e)\
-                             for l, e in zip(L, v)], dtype=int).prod())
+                             for l, e in zip(L, v)], dtype=np.ulonglong).prod())
     return ccL
 
 #Some counting functions
