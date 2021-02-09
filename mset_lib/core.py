@@ -235,3 +235,27 @@ def C2(L,k):
         mDict[(tuple(L), k)] = c(wL(L),k-1,i+1)+c(L[1:],k,i+L[0])
         return mDict[(tuple(L), k)]
     return c(L,k)
+
+#Profiting from the k, N-k symmetry. Usage is not recomended I wont go
+#into it, C2 seems better.
+def C3(L,k):
+    L.sort(reverse=True)
+    N=sum(L)
+    mDict={}
+    def c(L,k,i=0):
+        if (tuple(L), k) in mDict:
+            if (tuple(L), sum(L)-k) not in mDict:
+                mDict[(tuple(L), sum(L) - k)] = mDict[(tuple(L), k)]
+            return mDict[(tuple(L), k)]
+        elif i > N-k:
+            mDict[(tuple(L), k)] = 0
+            return mDict[(tuple(L), k)]
+        elif k == 0:
+            mDict[(tuple(L), k)] = 1
+            return mDict[(tuple(L), k)]
+        elif  k <= min(L):
+            mDict[(tuple(L), k)] = nck(len(L)+k-1,k)
+            return mDict[(tuple(L), k)]
+        mDict[(tuple(L), k)] = c(wL(L),k-1,i+1)+c(L[1:],k,i+L[0])
+        return mDict[(tuple(L), k)]
+    return c(L,k)
