@@ -11,7 +11,7 @@ from mset_lib.miscellaneous import *
 
 if __name__ == '__main__':
 
-
+    print("compBool\t cBool\t len(v1)\t v0T\t v1T\t v0T >= v1T")
     for i in range(20):
         L=getRandomMultList(8, 8)
         k=random.randint(0, sum(L))

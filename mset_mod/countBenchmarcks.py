@@ -11,6 +11,7 @@ from mset_lib.miscellaneous import *
 
 if __name__ == '__main__':
 
+    print("cBool   c2\t    c0T\t         c1T\t\t\t c2T")
     for i in range(20):
         L=getRandomMultList(20, 20)
         k=random.randint(1, 8)
