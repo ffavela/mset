@@ -12,7 +12,7 @@ if __name__ == "__main__":
     b=8
     c=10
     L=b*[c]
-    print("Imagine we have %d buckest each with capacity %d." %(b, c))
+    print("Imagine we have %d buckets each with capacity %d." %(b, c))
     print("That is equivalent of having a multiplitity list L = ", L)
     N=sum(L)
     print("This means that the maximum capacity is %d." %(N))
