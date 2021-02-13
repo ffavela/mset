@@ -29,6 +29,18 @@ The suggested order for testing the modules is:
 9) bucketList.py \# Needs matplotlib, also it may take a while to run
 		 \# integer numbers are humongous, Gauss Gauss Gauss...
 10) symmetryBenchC3.py \# Not worthy
+11) pokerFace \# a suit indistinguishability example
+12) sandBottle.py \# emergence of f(i)
+
+There has been some online discussion regarding combinations in
+multisets, the following examples provide the corresponding link to
+the original posts in the forum:
+
+1) stackexchange_1.py
+2) stackexchange_2.py
+3) stackexchange_3.py
+4) stackexchange_4.py
+
 
 Note that bucketList.py generates a matplotlib window with the
 following plot:
