@@ -16,7 +16,8 @@ if __name__ == "__main__":
     print("\nThe stack exchange post:\n\n"
           " https://math.stackexchange.com/questions/1556194/combinatorics-choosing-r-elements-from-a-multiset-of-n-elements-given-some-el\n")
 
-    print("Asks that given a multiset M = [3*['a']]+[4*['b']]+[2*['c']], or in other words:\n")
+    print("Asks how many ways there to choose 3 from a multiset\n"
+          "M = [3*['a']]+[4*['b']]+[2*['c']], or in other words:\n")
 
     M = [3*['a']]+[4*['b']]+[2*['c']]
 
