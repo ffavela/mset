@@ -71,3 +71,16 @@ def isSymmetric(cL):
     if cL[0] != cL[-1]:
         return False
     return isSymmetric(cL[1:-1])
+
+def getMFromS(S):
+    tempDict={}
+
+    for s in S:
+        if s not in tempDict:
+            tempDict[s] = 0
+        tempDict[s] += 1
+
+    M = [tempDict[s]*[s] for s in tempDict]
+    M.sort(key=len, reverse=True)
+
+    return M
