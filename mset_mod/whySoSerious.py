@@ -23,6 +23,6 @@ if __name__ == "__main__":
     L=eval(strL)
     print("A better way is to use mset by first constructing the\n"
           "multiplicity list L = %s, and then calling the combination function:\n\n"
-          " C2(L, 5) = %d\n\n"
+          " C2(L, 5) = H = %d\n\n"
           "Giving the desired value exactly!\n"
           %(strL, C2(L,5)))
