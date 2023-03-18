@@ -106,6 +106,20 @@ def MG(M,k):
         return tOp(S[i],g(k-1,wL(L),i+1))+g(k,L[1:],i+L[0])
     return g(k,L)
 
+#trying out a version without sorting
+def nMG(M,k):
+    L=[len(m) for m in M]
+    N=sum(L)
+    S=[e for sublist in M for e in sublist]
+    def g(k,L,i=0):
+        if i > N-k:
+            return [ ]
+        if k == 0:
+            return [[ ]]
+        return tOp(S[i],g(k-1,wL(L),i+1))+g(k,L[1:],i+L[0])
+    return g(k,L)
+
+
 #Some helper functions for generating strings and putting in on the
 #slides.
 def getSet(bStr, N):
@@ -235,6 +249,28 @@ def C2(L,k):
         mDict[(tuple(L), k)] = c(wL(L),k-1,i+1)+c(L[1:],k,i+L[0])
         return mDict[(tuple(L), k)]
     return c(L,k)
+
+#Testing out a version without the sorting preprocessing.
+def nC2(L,k):
+    # L.sort(reverse=True)
+    N=sum(L)
+    mDict={}
+    def c(L,k,i=0):
+        if (tuple(L), k) in mDict:
+            return mDict[(tuple(L), k)]
+        elif i > N-k:
+            mDict[(tuple(L), k)] = 0
+            return mDict[(tuple(L), k)]
+        elif k == 0:
+            mDict[(tuple(L), k)] = 1
+            return mDict[(tuple(L), k)]
+        elif  k <= min(L):
+            mDict[(tuple(L), k)] = nck(len(L)+k-1,k)
+            return mDict[(tuple(L), k)]
+        mDict[(tuple(L), k)] = c(wL(L),k-1,i+1)+c(L[1:],k,i+L[0])
+        return mDict[(tuple(L), k)]
+    return c(L,k)
+
 
 #Profiting from the k, N-k symmetry. Usage is not recomended I wont go
 #into it, C2 seems better.

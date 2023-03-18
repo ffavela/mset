@@ -13,9 +13,12 @@ if __name__ == '__main__':
     print("### CHANGE THE VARIABLES IN THE CODE TO GRASP IT BETTER ;-) ###\n")
 
     print("Suppose that you have the following multiset:\n")
-    M=[3*['a'], 2*['b'], ['c']]
+    # M=[4*['a'], 2*['b'], ['c']]
+    # M=[['c'], 2*['b'], 4*['a']]
+    M=[['c'], 3*['a'], 3*['b'], 6*['d']]
     L=getMultListFromM(M)
-    k=3
+    print("The multiplicity list is L =", L)
+    k=4
 
     print(" M = ", M)
 
@@ -40,9 +43,20 @@ if __name__ == '__main__':
 
     print()
 
-    outMG=MG(M, k)
+    #Just avoiding M to be innadvertively sorted
+    MM=M.copy()
+    outMG=MG(MM, k)
 
     for i, e in enumerate(outMG):
+        print(i, e)
+
+    print()
+
+    print("The unsorted version")
+
+    newOutMG=nMG(M, k)
+
+    for i, e in enumerate(newOutMG):
         print(i, e)
 
     print()
@@ -64,6 +78,9 @@ if __name__ == '__main__':
 
     print(" C2(L, %d) = %d \n" %(k, cResult))
 
+    nCResult = nC2(L, k)
+
+    print("The unsorted mult list version gives ", nCResult)
     print("Which gives exactly the total number of elements as previously enumerated.\n")
 
     print("It turns out that this problem has multiple equivalences, see also bucketKtuple.py")
